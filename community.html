@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="PADI Official Website">
+    <meta name="author" content="SUTD PADI inc.">
+
+    <title>PADI</title>
+    <link rel="SHORTCUT ICON" href="./img/shortcut-logo.ico">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="./css/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="./css/navbar-template.css" rel="stylesheet">
+    <link href="./css/community.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+	<link href="./css/fonts.css" rel="stylesheet">
+	
+</head>
+
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+			<div class="container topnav">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<button type="button" id="sidebar-toggle" class="sidebar-toggle navbar-brand topnav btn">
+						<span class="sr-only">Toggle sidebar</span>
+						<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+					</button>
+					<a class="navbar-brand topnav" href="./index.html#home"><img style="margin: -9px 0" src="./img/logo.png" alt="logo"></img></a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				
+					<!--Must be kept consistent across all 4 main pages-->
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="./index.html#about">About Us</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Events <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li class="dropdown-header">Featured Events</li>
+								<li><a href="./index.html#events">Saman Dance</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="./events.html">All Events</a></li>
+							</ul>
+						</li>
+						<li><a href="./index.html#warung">Warung</a></li>
+						<li><a href="./index.html#manusia">Community</a></li>
+						<li><a href="./index.html#contact">Contact Us</a></li>
+					</ul>
+					<!--/Navbar Till here-->
+					
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container -->
+		</nav>
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+			<!-- Sidebar -->
+			<div id="sidebar-wrapper">
+				<ul class="sidebar-nav">
+					<!--li class="sidebar-brand"><a href="#">Start Bootstrap</a></li-->
+					<li><a href="?content=2015">2015 Excos</a></li>
+					<li><a href="?content=2014">2014 Excos</a></li>
+				</ul>
+			</div>
+			<!-- /#sidebar-wrapper -->
+
+			<!-- Page Content -->
+			<div id="page-content-wrapper">
+				
+				<div class="container-fluid">
+				<br/>
+					<div id="content"></div>
+				</div>
+
+				<!-- Footer -->
+				<footer>
+				  <div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-12">
+							<p class="copyright text-muted small">Copyright &copy; PADI Inc. 2015 All Rights Reserved</p>
+						</div>
+					</div>
+				  </div>
+				</footer>
+
+			</div>
+			<!-- /#page-content-wrapper -->
+
+		</div>
+		<!--/#wrapper-->
+
+		<!-- jQuery -->
+		<script src="./js/jquery.min.js"></script>
+
+		<script>
+			//Menu Toggle Script
+			$("#sidebar-toggle").click(function(e) {
+				e.preventDefault();
+				$("#wrapper").toggleClass("toggled");
+			});
+			
+			//AJAX call load frame for content
+			function loadFrame(url){
+				$.get(url, function( data ) {
+				  $("#content").html( data );
+				});
+			}
+			$( document ).ready(function() {
+				//Read Query Param
+				var params = {};
+
+				if (location.search) {
+					var parts = location.search.substring(1).split('&');
+
+					for (var i = 0; i < parts.length; i++) {
+						var nv = parts[i].split('=');
+						if (!nv[0]) continue;
+						params[nv[0]] = nv[1] || true;
+					}
+				}
+				if (typeof params.content === "undefined"){
+					//default
+					params.content = "2015"
+				}
+				loadFrame("community/" + params.content + ".html");
+			});
+		</script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="./js/bootstrap.min.js"></script>
+	</body>
+
+</html>
