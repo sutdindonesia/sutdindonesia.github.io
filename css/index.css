@@ -118,3 +118,11 @@
   margin: 0;
   font-size: 2em;
 }
+
+h3 a {
+  color: #FFF;
+}
+
+h3 a:hover {
+  color: #D8D8D8;
+}
