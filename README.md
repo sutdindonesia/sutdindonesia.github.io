@@ -1,5 +1,4 @@
-# luccan.github.io
-PADI Website
+# PADI Website
 
 How to use special pages:
 
@@ -18,3 +17,5 @@ events.html:
 2. Add li as necessary in events.html
 3. Assign ?folder=2016&content=ultah-kat (name of folder, name of page w/o .html)
 4. Test online
+
+Migrated from # luccan.github.io
