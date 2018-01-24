@@ -18,4 +18,5 @@ events.html:
 3. Assign ?folder=2016&content=ultah-kat (name of folder, name of page w/o .html)
 4. Test online
 
-Migrated from # luccan.github.io
+Migrated from luccan.github.io
+THANKS LUCCAN
